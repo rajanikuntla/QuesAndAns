@@ -1,0 +1,26 @@
+<div class="modal-content modal-dialog modal-dialog-scrollable">
+	  <div class="modal-header">
+        <h4 class="modal-title display-2">Add New Call</h4>
+      </div>
+	<div class="modal-body">
+		<div style="min-height: 400px;">
+			<div id="quesDiv">
+				
+			</div>
+			<div class="alert alert-success" ng-if="msg">
+				<span>{{msg}}</span>
+			</div>
+			<div class="alert alert-danger" ng-if="errmsg">
+				<span>{{errmsg}}</span>
+			</div>
+		</div>
+		<div class="alert" style="text-align: right; background-color: #f1f1f1; margin-bottom: 0px; ">
+			<a ng-click="addQues()" style="text-decoration: none; cursor: pointer">+ Add New Question</a>
+		</div>
+	</div>
+	<div class="modal-footer" style="text-align: left">
+        <input type="button" class="btn btn-primary" ng-click="save()" value= "Save" />
+        <input type="button" class="btn btn-secondary"  ng-click="cancel()"  value= "Cancel" />
+      </div>
+ 	
+</div>

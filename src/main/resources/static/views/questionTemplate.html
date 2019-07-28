@@ -1,0 +1,41 @@
+<div style="margin:10px">
+    <div class="form-inline">
+	    <div class="form-group col-sm-8" >      
+	      <input type="text" placeholder="Please enter a question" class="form-control" ng-model="question.ques" style="width: 100%" ng-required="required" > 
+	    </div>
+	    <div class="form-group   col-sm-4">       
+	       <select name="ansType" class="form-control" ng-model="question.ansType"  ng-required="required">
+	         <option ng-repeat="ansType in ansTypes" value="{{ansType.ansTypeId}}">   {{ansType.ansTypeName}}   </option>
+	       </select>
+	    </div>
+	    <br>
+	    <div class="form-group" style="width:100%; margin-top:10px">
+	    	<div class="form-group col-sm-12" ng-if="question.ansType == 1" style="padding-left: 30px;" >
+	    		<textarea  placeholder="Give your Answer"  class="form-control" ng-model="question.ans[0].ans" style="width:100%"  ng-required="required"></textarea>
+	    	</div>
+	    	<div class="form-group col-sm-12"  ng-if="question.ansType == 2">
+	    		<div class="col-sm-7">
+	    			<input type="text"  placeholder="Give your Answer"  style="width: 100%" class="form-control" ng-model="question.ans[0].ans" ng-required="required">
+	    		</div>
+	    		 <div class="col-sm-5" style="padding-top: 10px;">
+	    		 	<a ng-click="addSubQues(0)" style="text-decoration: none; cursor: pointer">+ Add Sub Question</a>
+	    		 </div> 
+	    		 <div class="form-group col-sm-12" id="singleChoiceSubQuesDiv{{question.questionNo}}"></div> 
+	    	</div>
+	    	
+	    	<div class="form-group  col-sm-12"  ng-if="question.ansType == 3">
+	    		<div class="form-group" ng-repeat="n in [1,2,3,4,5]" style="width: 100%;" >  
+		    		<div class="col-sm-7">
+		    			<input type="text"  placeholder="Give your Answer"  style="width: 100%; margin-top:10px" class="form-control" ng-model="question.ans[n-1].ans">
+		    		</div>
+		    		 <div class="col-sm-5" style="padding-top: 15px;">
+		    		 	<a ng-click="addSubQues(n)" style="text-decoration: none; cursor: pointer">+ Add Sub Question</a>
+		    		 </div> 
+		    		 <div class="form-group col-sm-12" id="multipleChoiceSubQuesDiv{{question.questionNo}}{{n}}"></div>
+	    		</div>
+	    		
+	    	</div>
+	    
+	  	</div>
+	</div>
+</div>
